@@ -1,0 +1,83 @@
+/*ATM MACHINE*/
+
+#include <stdio.h>
+float balance=500;
+int anotherTransaction;
+void transaction()
+{
+	int choice;
+	printf("****Enter any options to be served!****\n\n");
+	printf("1.Withdraw\n2.Deposit\n3.Balance\n");
+	scanf("%d",&choice);
+	
+	switch(choice)
+	{
+		case 1:
+	        int amountwithdraw;
+	         
+		    printf("Please enter the amount to withdraw: \n");
+		    scanf("%d",&amountwithdraw);
+		    
+		    if(amountwithdraw>(balance-500))
+		     {
+			    
+			  printf("There is no sufficient funds in your account\nThere should be a minimum balance of 500 in your account\n");
+			
+			 }
+		    else
+		     {
+		       printf("Your transaction is being processed\n");
+	           balance=balance-amountwithdraw;
+	           printf("You have withdrawn %d and your balance is %.2f\n",amountwithdraw,balance);
+	         }
+	       printf("\n\nDo you want another transaction?\nPress 1 to proceed and 2 to exit\n\n");
+           scanf("%d",&anotherTransaction);
+	       if(anotherTransaction==1)
+	         {
+		        transaction();
+		     }
+		     
+	 
+            break;
+	
+		case 2:
+	       int amountDeposit;
+		   printf("Please enter amount to deposit:\n");
+		   scanf("%d",&amountDeposit);
+		   balance = amountDeposit+balance;
+		   printf("Thank you for depositing\nYour new balance is: %.2f\n",balance);
+		   printf("\n\nDo you want another transaction?\nPress 1 to proceed and 2 to exit\n\n");
+		   scanf("%d",&anotherTransaction);
+	       if(anotherTransaction==1)
+	        {
+		      transaction();
+		    }
+		   
+		  break;
+		
+	   case	3:
+		   printf("Your balance is: %.2f\n",balance);
+		   printf("\n\nDo you want another transaction?\nPress 1 to proceed and 2 to exit\n\n");
+		   scanf("%d",&anotherTransaction);
+	       if(anotherTransaction==1)
+	        {
+		      transaction();
+		    }
+		  
+		  break; 
+   
+			
+	}
+}
+
+
+int main(void)
+{
+	printf("*******************Hello!******************\n");
+	printf("**********Welcome to ATM Banking**********\n\n");
+	transaction();
+	printf("-----------Take your receipt----------\n");
+    printf("-----Thank you for using ATM Machine!!!-----\n");
+	
+	return 0;
+}
