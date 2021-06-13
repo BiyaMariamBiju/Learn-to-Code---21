@@ -9,11 +9,13 @@ void transaction()
 	printf("****Enter any options to be served!****\n\n");
 	printf("1.Withdraw\n2.Deposit\n3.Balance\n");
 	scanf("%d",&choice);
+	int amountwithdraw;
+	int amountDeposit;
 	
 	switch(choice)
 	{
 		case 1:
-	        int amountwithdraw;
+	       
 	         
 		    printf("Please enter the amount to withdraw: \n");
 		    scanf("%d",&amountwithdraw);
@@ -41,7 +43,7 @@ void transaction()
             break;
 	
 		case 2:
-	       int amountDeposit;
+	       
 		   printf("Please enter amount to deposit:\n");
 		   scanf("%d",&amountDeposit);
 		   balance = amountDeposit+balance;
